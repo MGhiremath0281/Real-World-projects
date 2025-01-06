@@ -11,3 +11,7 @@ This repository is structured to guide you through every step of solving real-wo
 - **Feature Engineering** 🔧: Smart transformation, selection, and creation of features to enhance model performance.  
 - **Model Implementation** 🤖: A variety of machine learning algorithms and frameworks tailored to solve specific problems.  
 - **Performance Evaluation** 📈: Rigorous testing using industry-standard metrics to validate the effectiveness of the solutions.  
+## Contact me:
+
+- **Instagram**: @muktanandagh
+- **LinkedIn**: [linkedin.com/in/muktananda-hiremath-5b3811304](https://linkedin.com/in/muktananda-hiremath-5b3811304)
