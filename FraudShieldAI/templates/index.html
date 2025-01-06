@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff; /* Light pastel blue */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .frame {
+            background-color: #ffffff; /* White background for the form */
+            border: 1px solid #a3d8f4; /* Light blue border */
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            width: 70%; /* Increased width */
+            max-width: 1000px; /* Slightly larger maximum width */
+            height: 85vh; /* Increased height for more content */
+            overflow-y: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2a506f; /* Darker blue for heading */
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2a506f; /* Dark blue for labels */
+        }
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #a3d8f4; /* Light blue border for inputs */
+        }
+        button {
+            background-color: #2a506f; /* Dark blue for button */
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #1e3b52; /* Darker shade of blue on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+        button:active {
+            transform: translateY(0); /* Reset transform on click */
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <form action="/predict" method="POST">
+            <h1>Insurance Fraud Detection</h1>
+            
+            <label for="months_as_customer">Months as Customer:</label>
+            <input type="number" name="months_as_customer" required>
+
+            <label for="age">Age:</label>
+            <input type="number" name="age" required>
+
+            <label for="policy_state">Policy State:</label>
+            <select name="policy_state" required>
+                <option value="TX">Texas</option>
+                <option value="CA">California</option>
+                <option value="OH">Ohio</option>
+            </select>
+
+            <label for="policy_csl">Policy CSL:</label>
+            <select name="policy_csl" required>
+                <option value="100/300">100/300</option>
+                <option value="250/500">250/500</option>
+                <option value="500/1000">500/1000</option>
+            </select>
+
+            <label for="policy_deductable">Policy Deductible:</label>
+            <input type="number" name="policy_deductable" required>
+
+            <label for="policy_annual_premium">Policy Annual Premium:</label>
+            <input type="number" step="0.01" name="policy_annual_premium" required>
+
+            <label for="umbrella_limit">Umbrella Limit:</label>
+            <input type="number" name="umbrella_limit" required>
+
+            <label for="insured_sex">Insured Sex:</label>
+            <select name="insured_sex" required>
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+            </select>
+
+            <label for="insured_education_level">Insured Education Level:</label>
+            <select name="insured_education_level" required>
+                <option value="High School">High School</option>
+                <option value="JD">JD</option>
+                <option value="MD">MD</option>
+                <option value="PhD">PhD</option>
+            </select>
+
+            <label for="incident_date">Incident Date:</label>
+            <input type="date" name="incident_date" required>
+
+            <label for="incident_type">Incident Type:</label>
+            <select name="incident_type" required>
+                <option value="Single Vehicle Collision">Single Vehicle Collision</option>
+                <option value="Multi-vehicle Collision">Multi-vehicle Collision</option>
+                <option value="Rear-end Collision">Rear-end Collision</option>
+                <option value="Side Collision">Side Collision</option>
+            </select>
+
+            <label for="collision_type">Collision Type:</label>
+            <select name="collision_type" required>
+                <option value="Front Collision">Front Collision</option>
+                <option value="Rear Collision">Rear Collision</option>
+                <option value="Side Collision">Side Collision</option>
+            </select>
+
+            <label for="incident_severity">Incident Severity:</label>
+            <select name="incident_severity" required>
+                <option value="Minor Damage">Minor Damage</option>
+                <option value="Major Damage">Major Damage</option>
+                <option value="Total Loss">Total Loss</option>
+            </select>
+
+            <label for="authorities_contacted">Authorities Contacted:</label>
+            <select name="authorities_contacted" required>
+                <option value="Police">Police</option>
+                <option value="Fire">Fire</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="incident_state">Incident State:</label>
+            <select name="incident_state" required>
+                <option value="TX">Texas</option>
+                <option value="CA">California</option>
+                <option value="OH">Ohio</option>
+            </select>
+
+            <label for="incident_city">Incident City:</label>
+            <input type="text" name="incident_city" required>
+
+            <label for="incident_hour_of_the_day">Incident Hour of the Day:</label>
+            <input type="number" name="incident_hour_of_the_day" min="0" max="23" required>
+
+            <label for="number_of_vehicles_involved">Number of Vehicles Involved:</label>
+            <input type="number" name="number_of_vehicles_involved" required>
+
+            <label for="property_damage">Property Damage:</label>
+            <select name="property_damage" required>
+                <option value="YES">Yes</option>
+                <option value="NO">No</option>
+            </select>
+
+            <label for="bodily_injuries">Bodily Injuries:</label>
+            <input type="number" name="bodily_injuries" required>
+
+            <label for="witnesses">Witnesses:</label>
+            <input type="number" name="witnesses" required>
+
+            <label for="police_report_available">Police Report Available:</label>
+            <select name="police_report_available" required>
+                <option value="YES">Yes</option>
+                <option value="NO">No</option>
+            </select>
+
+            <label for="total_claim_amount">Total Claim Amount:</label>
+            <input type="number" name="total_claim_amount" required>
+
+            <label for="injury_claim">Injury Claim:</label>
+            <input type="number" name="injury_claim" required>
+
+            <label for="property_claim">Property Claim:</label>
+            <input type="number" name="property_claim" required>
+
+            <label for="vehicle_claim">Vehicle Claim:</label>
+            <input type="number" name="vehicle_claim" required>
+
+            <label for="auto_year">Auto Year:</label>
+            <input type="number" name="auto_year" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
