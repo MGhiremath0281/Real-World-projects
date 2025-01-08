@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attrition Prediction</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #1e88e5;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 60%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 6px;
+            display: block;
+            color: #1e88e5;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        select {
+            background-color: #f9f9f9;
+            color: #555;
+        }
+
+        button {
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1565c0;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #1e88e5;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Employee Attrition Prediction</h1>
+
+    <div class="container">
+        <form action="/predict" method="POST">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter employee's age" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="" disabled selected>Select Department</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+                <option value="IT">IT</option>
+            </select>
+
+            <label for="job_title">Job Title:</label>
+            <select id="job_title" name="job_title" required>
+                <option value="" disabled selected>Select Job Title</option>
+                <option value="Junior">Junior</option>
+                <option value="Developer">Developer</option>
+                <option value="Senior">Senior</option>
+            </select>
+
+            <label for="years_at_company">Years at Company:</label>
+            <input type="number" id="years_at_company" name="years_at_company" placeholder="Enter number of years" required>
+
+            <label for="satisfaction_level">Satisfaction Level (0 to 1):</label>
+            <input type="number" step="0.01" id="satisfaction_level" name="satisfaction_level" placeholder="e.g., 0.75" required>
+
+            <label for="avg_monthly_hours">Average Monthly Hours:</label>
+            <input type="number" id="avg_monthly_hours" name="avg_monthly_hours" placeholder="Enter average monthly hours" required>
+
+            <label for="promotion_last_5years">Promotion in Last 5 Years:</label>
+            <select id="promotion_last_5years" name="promotion_last_5years" required>
+                <option value="" disabled selected>Promotion in Last 5 Years</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="salary">Salary:</label>
+            <select id="salary" name="salary" required>
+                <option value="" disabled selected>Select Salary Level</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+
+            <button type="submit">Predict Attrition</button>
+        </form>
+
+        {% if result %}
+        <div class="result">{{ result }}</div>
+        {% elif error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
