@@ -19,14 +19,22 @@ Employee attrition is a critical challenge for organizations, impacting producti
      - Random Forest  
      - Support Vector Machine (SVM)  
      - Gradient Boosting  
-   - Based on accuracy and other performance metrics, **Gradient Boosting** was chosen as the final model for deployment.
+   - Based on evaluation metrics, **Gradient Boosting** was chosen as the final model for deployment.
 
 3. **Model Performance**  
-   - **Accuracy:** 92.3%  
-   - **Precision:** 89.6%  
-   - **Recall:** 91.4%  
-   - **F1-Score:** 90.5%  
-   - The Gradient Boosting model provided the best trade-off between precision and recall, making it highly suitable for this use case.
+   - **Accuracy:** 52%  
+   - **Classification Report:**  
+     ```
+                 precision    recall  f1-score   support
+
+              0       0.53      0.51      0.52       102
+              1       0.50      0.52      0.51        98
+
+       accuracy                           0.52       200
+      macro avg       0.52      0.52      0.51       200
+   weighted avg       0.52      0.52      0.52       200
+     ```
+   - The **Gradient Boosting** model provided moderate performance but serves as a baseline for further optimization.
 
 4. **Web Application**  
    - Built a Flask-based web application for easy user interaction.  
@@ -37,7 +45,7 @@ Employee attrition is a critical challenge for organizations, impacting producti
 
 ## Outcome
 
-This project helps organizations by:  
-- Identifying employees at risk of attrition.  
-- Providing actionable insights to improve employee retention strategies.  
-- Streamlining decision-making using data-driven predictions.
+This project provides organizations with a tool to:  
+- Identify employees at risk of attrition.  
+- Initiate steps to improve retention strategies.  
+- Build on this baseline model to further enhance prediction accuracy.
