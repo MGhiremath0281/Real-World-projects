@@ -1,6 +1,6 @@
 # Bengaluru House Price Prediction
 
-This project aims to predict house prices in Bengaluru, using key features such as location, square footage, number of bathrooms, and BHK (bedroom, hall, kitchen). The objective is to build a machine learning model that can help buyers, sellers, and investors make informed decisions regarding real estate in Bengaluru.
+This project aims to predict house prices in Bengaluru, using key features such as location, square footage, number of bathrooms, and BHK (bedroom, hall, kitchen). The objective is to build a machine learnnng model that can help buyers, sellers, and investors make informed decisions regarding real estate in Bengaluru.
 
 ## Dataset Overview
 
@@ -11,7 +11,7 @@ The dataset includes the following features:
 - **bhk**: The number of bedrooms, halls, and kitchens.
 - **price**: The target variable representing the house price in lakhs.
 
-## Model Overview
+## Model Overview.
 
 Three regression models were implemented and evaluated:
 - **Linear Regression**: A baseline model for performance comparison.
