@@ -19,7 +19,7 @@ Farmers often face challenges in deciding which crop to cultivate based on their
    - Model training using **Gradient Boosting Classifier** for high accuracy.
 3. **Deployment**:
    - A Flask web application with a user-friendly interface.
-   - Users can input parameters to get crop recommendations.
+   - Users can input parameters to get crop recommendations.  
 
 ## Features
 - Accepts soil and environmental parameters as inputs.
@@ -29,4 +29,4 @@ Farmers often face challenges in deciding which crop to cultivate based on their
 ## How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/crop-recommendation.git
+   git clone https://github.com/Real-World-projects/crop-recommendation.git
